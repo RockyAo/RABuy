@@ -12,24 +12,17 @@ import {
   View
 } from 'react-native';
 
+
+var Main = require('./Classes/Main/Main')
+
 class RABuy extends Component {
   render() {
     return (
-      <View style={styles.container}>
-
-      </View>
+          <Main />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
 
-});
 
 AppRegistry.registerComponent('RABuy', () => RABuy);

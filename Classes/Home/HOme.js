@@ -1,14 +1,3 @@
-/**
- * Created by ZCBL on 16/8/22.
- */
-/**
- * Created by ZCBL on 16/8/22.
- */
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
 import {
@@ -18,15 +7,15 @@ import {
     View
 } from 'react-native';
 
-class Home extends Component {
+var Home = React.createClass({
     render() {
         return (
             <View style={styles.container}>
-
+                <Text> 首页</Text>
             </View>
         );
     }
-}
+});
 
 const styles = StyleSheet.create({
     container: {
@@ -38,4 +27,4 @@ const styles = StyleSheet.create({
 
 });
 
-module.exports =  Home;
+module.exports = Home;

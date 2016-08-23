@@ -1,9 +1,3 @@
-/**
- * Created by ZCBL on 16/8/22.
- */
-/**
- * Created by ZCBL on 16/8/22.
- */
 
 
 import React, { Component } from 'react';
@@ -14,15 +8,16 @@ import {
     View
 } from 'react-native';
 
-class Shop extends Component {
+var Shop = React.createClass({
+
     render() {
         return (
             <View style={styles.container}>
-
+                <Text>商家</Text>
             </View>
         );
     }
-}
+});
 
 const styles = StyleSheet.create({
     container: {
@@ -34,4 +29,4 @@ const styles = StyleSheet.create({
 
 });
 
-module.exports =  Shop;
+module.exports = Shop;

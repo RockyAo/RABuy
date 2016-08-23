@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 
-var Main = require('./Classes/Main/Main')
+var Main = require('./Classes/Main/Main');
 
 class RABuy extends Component {
   render() {

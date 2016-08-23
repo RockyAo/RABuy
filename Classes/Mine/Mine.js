@@ -1,11 +1,4 @@
-/**
- * Created by ZCBL on 16/8/22.
- */
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+
 
 import React, { Component } from 'react';
 import {
@@ -15,15 +8,16 @@ import {
     View
 } from 'react-native';
 
-class Mine extends Component {
+var Mine = React.createClass({
+
     render() {
         return (
             <View style={styles.container}>
-
+                <Text>我的</Text>
             </View>
         );
     }
-}
+});
 
 const styles = StyleSheet.create({
     container: {
@@ -35,7 +29,5 @@ const styles = StyleSheet.create({
 
 });
 
-module.exports =  Mine;
-/**
- * Created by ZCBL on 16/8/22.
- */
+module.exports = Mine;
+

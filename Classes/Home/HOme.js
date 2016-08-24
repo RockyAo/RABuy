@@ -6,8 +6,10 @@ import {
     Text,
     View,
     TextInput,
-    Image
-
+    Image,
+    TouchableOpacity,
+    StatusBar,
+    Platform
 } from 'react-native';
 
 var Dimensions = require('Dimensions')
@@ -17,6 +19,10 @@ var Home = React.createClass({
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    translucent={true}
+                    barStyle="light-content"
+                />
                 {this.renderNavBar()}
             </View>
         );
@@ -29,17 +35,27 @@ var Home = React.createClass({
             <View style={styles.navViewStyle}>
 
                 {/*左边*/}
-                <Text style={styles.leftTextStyle}>
-                    北京
-                </Text>
+
+                <TouchableOpacity onPress = {()=>{alert('点击了地理位置选择')}}>
+                    <Text style={styles.leftTextStyle}>
+                        北京
+                    </Text>
+                </TouchableOpacity>
                 {/*中间*/}
                 <TextInput
-
+                    style={styles.navInputStyle}
+                    placeholder = '输入商家、商品'
                 />
                 {/*右边*/}
-                <View style={{flexDirection:'row'}}>
-                    <Image source={{uri: 'icon_homepage_message'}} style={styles.navRightImageStyle}/>
-                    <Image source={{uri: 'icon_homepage_scan'}} style={styles.navRightImageStyle}/>
+                <View style={styles.navRightViewStyle}>
+
+                    <TouchableOpacity onPress = {()=>{alert('消息点击')}}>
+                        <Image source={{uri: 'icon_homepage_message'}} style={styles.navRightImageStyle}/>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress = {()=>{alert('扫码点击')}}>
+                        <Image source={{uri: 'icon_homepage_scan'}} style={styles.navRightImageStyle}/>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
@@ -59,18 +75,24 @@ const styles = StyleSheet.create({
         backgroundColor:'orange',
         flexDirection:'row',
         alignItems:'center',
+        justifyContent:'space-around'
     },
 
     navInputStyle:{
-
-        width:width*0.6,
-        height:40
+        marginTop:27,
+        width:width*0.7,
+        height:30,
+        backgroundColor:'white',
+        borderRadius:6,
+        paddingLeft:5,
+        fontSize:15
     },
 
     navRightImageStyle:{
-        marginTop:20,
-        width:30,
-        height:30
+
+        width:25,
+        height:25,
+
     },
 
     leftTextStyle:{
@@ -78,6 +100,13 @@ const styles = StyleSheet.create({
         color:'white',
         marginTop:20
 
+    },
+
+    navRightViewStyle:{
+        marginTop:20,
+        flexDirection:'row',
+        width:60,
+        justifyContent:'space-around'
     }
 });
 

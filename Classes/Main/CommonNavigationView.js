@@ -7,24 +7,25 @@ import {
     Text,
     View,
     Platform,
+    Image
 } from 'react-native';
 
 var CommonNavigationView = React.createClass({
 
     props: {
 
-        navTitle: string,
-        leftImage:uri,
-        rightImage:uri,
+        navTitle:String,
+        leftImage:String,
+        rightImage:String,
     },
 
     render() {
         return (
 
             <View style={styles.container}>
-                <Image source={this.props.leftImage} style={styles.imageStyle}/>
+                <Image source={{uri:this.props.leftImage}} style={styles.imageStyle}/>
                 <Text style={styles.titleTextStyle}>{this.props.navTitle}</Text>
-                <Image source={this.props.rightImage} style={styles.imageStyle}/>
+                <Image source={{uri:this.props.rightImage}} style={styles.imageStyle}/>
             </View>
         );
     }
@@ -33,20 +34,22 @@ var CommonNavigationView = React.createClass({
 const styles = StyleSheet.create({
     container: {
         height:Platform.OS === 'ios' ? 64 : 44 ,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor:'orange',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent: 'space-around'
     },
 
     imageStyle:{
 
         width:25,
-        height:25
+        height:25,
     },
 
     titleTextStyle:{
 
-
+        color:'white',
+        fontSize:18
     },
 
 });

@@ -22,6 +22,7 @@ var Home = React.createClass({
                 <StatusBar
                     translucent={true}
                     barStyle="light-content"
+                    backgroundColor="orange"
                 />
                 {this.renderNavBar()}
             </View>

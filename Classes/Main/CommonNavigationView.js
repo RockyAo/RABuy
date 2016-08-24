@@ -22,9 +22,9 @@ var CommonNavigationView = React.createClass({
         return (
 
             <View style={styles.container}>
-                <Image source={this.props.leftImage} style={styles.leftImageStyle}/>
+                <Image source={this.props.leftImage} style={styles.imageStyle}/>
                 <Text style={styles.titleTextStyle}>{this.props.navTitle}</Text>
-                <Image source={this.props.rightImage} style={styles.rightImageStyle}/>
+                <Image source={this.props.rightImage} style={styles.imageStyle}/>
             </View>
         );
     }
@@ -38,14 +38,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5FCFF',
     },
 
-    leftImageStyle:{
+    imageStyle:{
 
-
-    },
-
-    rightImageStyle:{
-
-
+        width:25,
+        height:25
     },
 
     titleTextStyle:{

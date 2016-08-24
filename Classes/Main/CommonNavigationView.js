@@ -5,10 +5,12 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    Platform,
 } from 'react-native';
 
 var CommonNavigationView = React.createClass({
+
     props: {
 
         navTitle: string,
@@ -30,7 +32,7 @@ var CommonNavigationView = React.createClass({
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height:Platform.OS === 'ios' ? 64 : 44 ,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',

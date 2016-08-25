@@ -7,37 +7,56 @@ import {
     Text,
     View,
     Platform,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 
 var CommonNavigationView = React.createClass({
 
-    props: {
+    getDefaultProps(){
 
-        navTitle:String,
-        leftImage:String,
-        rightImage:String,
+        return{
+
+            navTitle:'',
+            leftImage:'',
+            rightImage:'',
+        }
     },
 
     render() {
         return (
 
             <View style={styles.container}>
-                <Image source={{uri:this.props.leftImage}} style={styles.imageStyle}/>
-                <Text style={styles.titleTextStyle}>{this.props.navTitle}</Text>
-                <Image source={{uri:this.props.rightImage}} style={styles.imageStyle}/>
+
+                <TouchableOpacity style={styles.leftIconPositionStyle} onPress={()=>{alert('左边')}}>
+                    <Image source={{uri:this.props.leftImage}} style={styles.imageStyle}/>
+                </TouchableOpacity>
+
+                <View style={styles.titleTextPostionStyle}>
+
+                    <Text style={styles.titleTextStyle}>{this.props.navTitle}</Text>
+
+                </View>
+
+                <TouchableOpacity style={styles.rightIconPositionStyle} onPress={()=>{alert('右边')}}>
+                    <Image source={{uri:this.props.rightImage}} style={styles.imageStyle}/>
+                </TouchableOpacity>
+
             </View>
         );
-    }
+    },
+
+
 });
 
 const styles = StyleSheet.create({
     container: {
-        height:Platform.OS === 'ios' ? 64 : 44 ,
+        // height:Platform.OS === 'ios' ? 64 : 44 ,
+        height:64,
         backgroundColor:'orange',
         flexDirection:'row',
         alignItems:'center',
-        justifyContent: 'space-around'
+        justifyContent: 'center'
     },
 
     imageStyle:{
@@ -46,11 +65,31 @@ const styles = StyleSheet.create({
         height:25,
     },
 
-    titleTextStyle:{
+    leftIconPositionStyle:{
 
-        color:'white',
-        fontSize:18
+        position:'absolute',
+        left:10,
+        // bottom: Platform.OS === 'ios' ? 12:0
+        bottom:12
     },
+    rightIconPositionStyle:{
+
+        position:'absolute',
+        right:10,
+        // bottom: Platform.OS === 'ios' ? 12:0
+        bottom:12
+    },
+
+    titleTextStyle:{
+        color:'white',
+        fontSize:18,
+    },
+
+    titleTextPostionStyle:{
+
+        // marginTop:Platform.OS === 'ios' ? 20 : 0
+        marginTop:20
+    }
 
 });
 

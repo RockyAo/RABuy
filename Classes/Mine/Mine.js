@@ -5,15 +5,35 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    ScrollView
 } from 'react-native';
+
+var MineCell = require('../Mine/MineCell');
 
 var Mine = React.createClass({
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>我的</Text>
+                <ScrollView style={styles.container}>
+                    <View>
+                        <MineCell title="我的订单" leftImageName="collect" discribeTitle="查看全部订单"/>
+                    </View>
+                    <View style={styles.marginStyle}>
+                        <MineCell title="钱包" leftImageName="draft" discribeTitle="账户余额:0.01元"/>
+                        <MineCell title="抵用券" leftImageName="like" discribeTitle="0"/>
+                    </View>
+                    <View style={styles.marginStyle}>
+                        <MineCell title="积分商城" leftImageName="card"/>
+                    </View>
+                    <View style={styles.marginStyle}>
+                        <MineCell title="今日推荐" leftImageName="new_friend" needNewImage={true}/>
+                    </View>
+                    <View style={styles.marginStyle}>
+                        <MineCell title="我要合作" leftImageName="pay" discribeTitle="轻松开店"/>
+                    </View>
+                </ScrollView>
             </View>
         );
     }
@@ -22,10 +42,15 @@ var Mine = React.createClass({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        backgroundColor: '#e8e8e8',
     },
+
+    marginStyle:{
+
+        marginTop:10,
+    }
 
 });
 

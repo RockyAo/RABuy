@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 var MineCell = require('../Mine/MineCell');
+var MineBuyInfoView = require('../Mine/MineBuyInfoView');
+var MineHeaderView = require('../Mine/MineHeaderView');
 
 var Mine = React.createClass({
 
@@ -18,7 +20,9 @@ var Mine = React.createClass({
             <View style={styles.container}>
                 <ScrollView style={styles.container}>
                     <View>
+                        <MineHeaderView />
                         <MineCell title="我的订单" leftImageName="collect" discribeTitle="查看全部订单"/>
+                        <MineBuyInfoView />
                     </View>
                     <View style={styles.marginStyle}>
                         <MineCell title="钱包" leftImageName="draft" discribeTitle="账户余额:0.01元"/>
@@ -36,7 +40,9 @@ var Mine = React.createClass({
                 </ScrollView>
             </View>
         );
-    }
+    },
+
+
 });
 
 const styles = StyleSheet.create({
@@ -51,6 +57,7 @@ const styles = StyleSheet.create({
 
         marginTop:10,
     }
+
 
 });
 

@@ -9,7 +9,9 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    Image,
+    TouchableOpacity,
+    Platform
 } from 'react-native';
 
 var MineCell = React.createClass({
@@ -28,19 +30,24 @@ var MineCell = React.createClass({
 
     render() {
         return (
-            <View style={styles.container}>
-                <View style={{flexDirection:'row',alignItems:'center'}}>
-                    <Image source={{uri:this.props.leftImageName}} style={styles.leftImageStyle}/>
-                    <Text style={{marginLeft:10}}>{this.props.title}</Text>
-                </View>
-                <View style={{flexDirection:'row',alignItems:'center'}}>
-                    {this.creatDiscribeLabel()}
-                    {this.creatNewImageView()}
-                    <Image source={{uri:'icon_cell_rightArrow'}} style={{width:8,height:13,marginRight:10}}/>
-                </View>
+
+            <TouchableOpacity onPress={()=>{alert("点击了"+this.props.title)}}>
+                <View style={styles.container}>
+                    <View style={{flexDirection:'row',alignItems:'center'}}>
+                        <Image source={{uri:this.props.leftImageName}} style={styles.leftImageStyle}/>
+                        <Text style={{marginLeft:10}}>{this.props.title}</Text>
+                    </View>
+                    <View style={{flexDirection:'row',alignItems:'center'}}>
+                        {this.creatDiscribeLabel()}
+                        {this.creatNewImageView()}
+                        <Image source={{uri:'icon_cell_rightArrow'}} style={{width:8,height:13,marginRight:10}}/>
+                    </View>
 
 
-            </View>
+                </View>
+
+            </TouchableOpacity>
+
         );
     },
 
@@ -72,7 +79,7 @@ const styles = StyleSheet.create({
         height:44,
         backgroundColor:'white',
         borderBottomColor:'#dddddd',
-        borderBottomWidth:0.25,
+        borderBottomWidth:Platform.OS === 'ios' ? 0.25 : 0.5,
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center'

@@ -3,12 +3,6 @@
  */
 
 
-
-/**
- * Created by ZCBL on 16/8/25.
- */
-
-
 import React, { Component } from 'react';
 import {
     AppRegistry,

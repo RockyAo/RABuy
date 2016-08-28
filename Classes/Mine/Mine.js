@@ -18,7 +18,9 @@ var Mine = React.createClass({
     render() {
         return (
             <View style={styles.container}>
-                <ScrollView style={styles.container}>
+                <ScrollView style={styles.container}
+
+                >
                     <View>
                         <MineHeaderView />
                         <MineCell title="我的订单" leftImageName="collect" discribeTitle="查看全部订单"/>

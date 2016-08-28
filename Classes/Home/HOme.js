@@ -9,11 +9,14 @@ import {
     Image,
     TouchableOpacity,
     StatusBar,
-    Platform
+    Platform,
+    ScrollView
 } from 'react-native';
 
-var Dimensions = require('Dimensions')
-var {width,height} = Dimensions.get('window')
+var Dimensions = require('Dimensions');
+var {width,height} = Dimensions.get('window');
+
+var HomeTopView = require('../Home/HomeTopView');
 
 var Home = React.createClass({
     render() {
@@ -25,6 +28,9 @@ var Home = React.createClass({
                     backgroundColor="orange"
                 />
                 {this.renderNavBar()}
+                <ScrollView>
+                    <HomeTopView />
+                </ScrollView>
             </View>
         );
     },
@@ -36,7 +42,6 @@ var Home = React.createClass({
             <View style={styles.navViewStyle}>
 
                 {/*左边*/}
-
                 <TouchableOpacity onPress = {()=>{alert('点击了地理位置选择')}}>
                     <Text style={styles.leftTextStyle}>
                         北京
@@ -57,7 +62,9 @@ var Home = React.createClass({
                     <TouchableOpacity onPress = {()=>{alert('扫码点击')}}>
                         <Image source={{uri: 'icon_homepage_scan'}} style={styles.navRightImageStyle}/>
                     </TouchableOpacity>
+
                 </View>
+
             </View>
         )
     }

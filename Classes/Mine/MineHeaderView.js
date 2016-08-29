@@ -22,7 +22,8 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-
+var Dimensions = require('Dimensions');
+var {width,height} = Dimensions.get('window');
 var MineHeaderView = React.createClass({
 
     render() {
@@ -47,9 +48,61 @@ var MineHeaderView = React.createClass({
                 <View>
                     <Image source={{uri:'icon_cell_rightArrow'}} style={{width:8,height:13,marginRight:10}}/>
                 </View>
+                {this.creatInfoBar()}
             </View>
         );
     },
+
+    creatInfoBar(){
+
+        return(
+
+            <View style={{
+
+                position:'absolute',
+                left:0,
+                bottom:0,
+                flexDirection:'row',
+                width:width
+            }}>
+                {this.getAllInfoBar()}
+            </View>
+        )
+    },
+
+    getAllInfoBar(){
+
+        var data = [{number:'10',name:'优惠券'},{number:'20',name:'评价'},{number:'100',name:'收藏'}];
+
+        var itemArray = [];
+
+        for (var  i = 0; i < data.length;i++){
+
+            var item = data[i];
+
+            itemArray.push(
+
+                <View key = {i} style={{
+
+                    width:width/3,
+
+                    alignItems:'center',
+                    backgroundColor:'rgba(243,243,243,0.4)',
+                    height:44,
+                    justifyContent:'center',
+                    borderRightColor:'white',
+                    borderRightWidth:0.5
+                }}>
+                    <Text style={styles.wordStyle}>{item.name}</Text>
+                    <Text style={styles.wordStyle}>{item.number}</Text>
+
+                </View>
+            )
+        }
+
+        return itemArray
+    }
+
 
 
 });
@@ -67,6 +120,10 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
 
+    wordStyle:{
+
+        color:'white',
+    }
 
 });
 

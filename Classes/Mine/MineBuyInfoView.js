@@ -19,15 +19,20 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+var Dimensions = require('Dimensions');
+var {width,height} = Dimensions.get('window');
+
 var MineBuyInfoView = React.createClass({
 
     render() {
         return (
             <View style={styles.container}>
-                {this.creatSmallButton('order1','待付款')}
-                {this.creatSmallButton('order2','待使用')}
-                {this.creatSmallButton('order3','待评价')}
-                {this.creatSmallButton('order4','退款/售后')}
+
+                   {this.creatSmallButton('order1','待付款')}
+                   {this.creatSmallButton('order2','待使用')}
+                   {this.creatSmallButton('order3','待评价')}
+                   {this.creatSmallButton('order4','退款/售后')}
+
             </View>
         );
     },
@@ -40,9 +45,8 @@ var MineBuyInfoView = React.createClass({
             <View style={{
 
                 alignItems:'center',
-                justifyContent:'space-between',
-                marginLeft:30,
-                marginRight:30,
+                justifyContent:'center',
+                width:width/4,
 
             }}>
                 <Image source={{uri:imageName}} style={{width:30,height:20}}/>
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
         borderTopColor:'#dddddd',
         borderTopWidth:1,
         flexDirection:'row',
-        justifyContent:'space-between',
+        justifyContent:'center',
         alignItems:'center'
     },
 

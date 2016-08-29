@@ -18,8 +18,8 @@ var CommonNavigationView = React.createClass({
         return{
 
             navTitle:'',
-            leftImage:'',
-            rightImage:'',
+            leftImage:'noneimage',
+            rightImage:'noneimage',
         }
     },
 

@@ -1,6 +1,4 @@
-/**
- * Created by ZCBL on 16/8/22.
- */
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -24,6 +22,7 @@ var Home = require('../Home/Home');
 var Shop = require('../Shop/Shop');
 var Mine = require('../Mine/Mine');
 var More = require('../More/More');
+
 
 var Main = React.createClass({
 

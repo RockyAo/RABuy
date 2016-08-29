@@ -2,17 +2,6 @@
  * Created by Administrator on 2016/8/25 0025.
  */
 
-/**
- * Created by Administrator on 2016/8/25 0025.
- */
-
-
-
-/**
- * Created by ZCBL on 16/8/25.
- */
-
-
 import React, { Component } from 'react';
 import {
     AppRegistry,
@@ -20,7 +9,8 @@ import {
     Text,
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform
 } from 'react-native';
 var Dimensions = require('Dimensions');
 var {width,height} = Dimensions.get('window');
@@ -117,7 +107,8 @@ const styles = StyleSheet.create({
         borderTopWidth:1,
         flexDirection:'row',
         justifyContent:'space-between',
-        alignItems:'center'
+        alignItems:'center',
+
     },
 
     wordStyle:{

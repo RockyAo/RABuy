@@ -20,6 +20,8 @@ var Dimensions = require('Dimensions');
 var {width,height} = Dimensions.get('window');
 
 var HomeTopView = require('../Home/HomeTopView');
+var HomeCenterView = require('../Home/HomeCenterView');
+
 
 var Home = React.createClass({
     render() {
@@ -33,6 +35,7 @@ var Home = React.createClass({
                 {this.renderNavBar()}
                 <ScrollView>
                     <HomeTopView />
+                    <HomeCenterView />
                 </ScrollView>
             </View>
         );

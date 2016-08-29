@@ -10,7 +10,8 @@ import {
     Text,
     View,
     Image,
-    ListView
+    ListView,
+    TouchableOpacity
 } from 'react-native';
 var Dimensions = require('Dimensions');
 var {width,height} = Dimensions.get('window');
@@ -53,13 +54,14 @@ var HomeTopListView = React.createClass({
 
         return(
 
-            <View style={styles.cellStyle}>
-
-                <Image source={{uri:rowData.image}} style={{width:52,height:52}}/>
-                <Text style={{color:'black',fontSize:12}}>
-                    {rowData.title}
-                </Text>
-            </View>
+           //<TouchableOpacity onPress={()=>{alert(rowData.title)}}>
+               <View style={styles.cellStyle}>
+                   <Image source={{uri:rowData.image}} style={{width:52,height:52}}/>
+                   <Text style={{color:'black',fontSize:12}}>
+                       {rowData.title}
+                   </Text>
+               </View>
+            //</TouchableOpacity>
         )
     }
 });

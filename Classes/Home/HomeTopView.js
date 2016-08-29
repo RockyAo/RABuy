@@ -17,6 +17,10 @@ import {
     Platform,
     ScrollView
 } from 'react-native';
+var Dimensions = require('Dimensions');
+var {width,height} = Dimensions.get('window');
+var HomeTopListView = require('../Home/HomeTopListView');
+var TopMenu = require('../../LocalData/TopMenu.json');
 
 var HomeTopView = React.createClass({
 
@@ -31,36 +35,60 @@ var HomeTopView = React.createClass({
     render() {
         return (
 
-            <View>
-
+            <View style={styles.container}>
                 {/*上部分*/}
                 <ScrollView
                     horizontal={true}
                     pagingEnabled={true}
+                    onMomentumScrollEnd = {this.onScrollAnimationEnd}
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                    style={{height:180,width:width}}
                 >
 
+                    {this.renderTopView()}
                 </ScrollView>
+
+                <HomeTopListView />
                 {/*页码部分*/}
                 <View style={styles.indicatorViewStyle}>
-
                     {this.renderPageView()}
                 </View>
             </View>
         );
     },
 
+    renderTopView(){
+
+        var subViewArray = [];
+        var dataArray = TopMenu.data;
+        for (var  i = 0;i < dataArray.length;i++){
+
+            subViewArray.push(
+
+               <HomeTopListView
+                   key = {i}
+                   dataArr = {dataArray[i]}
+               />
+            )
+        }
+
+        return subViewArray;
+    },
+
     //页码指示器
     renderPageView(){
 
-            var indicatorArray = [], style;
+            var indicatorArray = [];
 
             for (var i = 0;i < 2;i++){
 
                 indicatorArray.push(
 
-                    style = (i === this.state.selectedPage) ? {color:'orange'} : {color:'gray'},
-
-                    <Text key={i} style={[{fontSize:17},style]}>&bull;</Text>
+                    <Text key={i} style={{
+                        fontSize:25,
+                        color:(i === this.state.selectedPage) ? 'orange' : 'gray',
+                    }}>&bull;</Text>
                 )
             }
 
@@ -68,21 +96,36 @@ var HomeTopView = React.createClass({
 
     },
 
+    onScrollAnimationEnd(scrollView){
+
+        var currentPage = Math.floor(scrollView.nativeEvent.contentOffset.x / width)
+
+        this.setState({
+
+            selectedPage:currentPage,
+        })
+    }
+
 });
 
 const styles = StyleSheet.create({
     container: {
-        height:44,
+        height:190,
         backgroundColor:'white',
-        flexDirection:'row',
+        // flexDirection:'row',
         alignItems:'center'
     },
 
     indicatorViewStyle:{
 
-
         flexDirection:'row',
         justifyContent:'center',
+        position:'absolute',
+        bottom:0,
+        backgroundColor:'rgba(0,0,0,0)',
+        width:width,
+        left:0
+
     },
 
 });

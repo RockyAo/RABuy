@@ -21,7 +21,8 @@ var {width,height} = Dimensions.get('window');
 
 var HomeTopView = require('../Home/HomeTopView');
 var HomeCenterView = require('../Home/HomeCenterView');
-
+var HomeCenterBottomView = require('../Home/HomeCenterBottomView');
+var DetailWebview = require('../Home/DetailWebview');
 
 var Home = React.createClass({
     render() {
@@ -36,6 +37,10 @@ var Home = React.createClass({
                 <ScrollView>
                     <HomeTopView />
                     <HomeCenterView />
+                    <HomeCenterBottomView
+
+                        buttonClickCallBack = {(url) => {this.pushDetailView(url)}}
+                    />
                 </ScrollView>
             </View>
         );
@@ -73,7 +78,24 @@ var Home = React.createClass({
 
             </View>
         )
-    }
+    },
+
+    pushDetailView(url){
+
+        var finalUrl = this.dealWithUrl(url)
+
+        this.props.navigator.push({
+
+                component:DetailWebview,
+                passProps:{'url':finalUrl},
+
+            }
+        )
+    },
+
+    dealWithUrl(url){
+        return url.replace('imeituan://www.meituan.com/web/?url=', '');
+    },
 
 });
 

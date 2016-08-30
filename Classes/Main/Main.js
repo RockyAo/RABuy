@@ -24,6 +24,8 @@ var Mine = require('../Mine/Mine');
 var More = require('../More/More');
 
 
+var CommonNavigationView = require('../Main/CommonNavigationView');
+
 var Main = React.createClass({
 
     getInitialState(){
@@ -77,6 +79,16 @@ var Main = React.createClass({
                         let Component = route.component;
                         return <Component {...route.passProps} navigator = {navigator}/>
                     }}
+
+                    sceneStyle={
+
+                        <CommonNavigationView
+
+                            leftImage="navigationbar_arrow_up"
+
+                        />
+                    }
+
                 />
 
             </TabNavigator.Item>

@@ -29,40 +29,60 @@ var HomeButton = React.createClass({
             //图片名称
             iconImageName:'none',
             //窗口宽度
-            viewWidth:0
+            viewWidth:0,
+            //下级页面的url
+            nextUrl:'',
+            //回调函数
+            homeButtonClickCallBack:null
         }
     },
 
 
     render() {
         return (
-            <View style={[styles.container,{width:this.props.viewWidth}]}>
-                <View style={{
 
-                    marginLeft:10,
-                    justifyContent:'space-around',
-                    backgroundColor:'red',
+            <TouchableOpacity onPress={()=>{this.buttonClick(this.props.nextUrl)}}>
 
-                }}>
-                    <Text style={{
-                        color:this.props.titleStringColor,
-                    }}>{this.props.titleString}</Text>
-                    <Text style={{
+                <View style={[styles.container,{width:this.props.viewWidth}]}>
+                    <View style={{
 
-                        color:this.props.discribeStringColor,
-                        marginTop:10
-                    }}>{this.props.discribeString}</Text>
+                        marginLeft:10,
+                        justifyContent:'space-around',
+                        alignItems:'center',
+                        backgroundColor:'white'
+
+                    }}>
+                        <Text style={{
+                            color:this.props.titleStringColor,
+                            fontSize:18
+                        }}>{this.props.titleString}</Text>
+
+                        <Text style={{
+                            color:this.props.discribeStringColor,
+                            marginTop:10,
+                            fontSize:13
+                        }}>{this.props.discribeString}</Text>
+                    </View>
+                    <View style={{
+
+                        alignItems:'center',
+                        marginRight:10,
+                        backgroundColor:'white'
+                    }}>
+                        <Image source={{uri:this.props.iconImageName}} style={{width:117/2.0,height:85/2.0,resizeMode:'contain'}}/>
+                    </View>
+
                 </View>
-                <View style={{
-
-                    alignItems:'center',
-                    marginRight:10
-                }}>
-                    <Image source={{uri:this.props.iconImageName}} style={{width:117/2.0,height:85/2.0}}/>
-                </View>
-
-            </View>
+            </TouchableOpacity>
         );
+    },
+
+
+    buttonClick(data){
+
+        if (this.props.homeButtonClickCallBack == null) return;
+
+        this.props.homeButtonClickCallBack(data)
     }
 });
 
@@ -74,13 +94,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection:'row',
         height:70,
-        borderTopColor:'#d8d8d8',
-        borderTopWidth:0.5,
-        borderLeftColor:'#d8d8d8',
-        borderLeftWidth:0.5,
-        borderRightColor:'#d8d8d8',
-        borderRightWidth:0.5
-        // width:this.props.viewWidth
+        borderTopColor:'#dddddd',
+        borderTopWidth:1,
+        borderLeftColor:'#dddddd',
+        borderLeftWidth:1,
+        borderRightColor:'#dddddd',
+        borderRightWidth:1
+
     },
 
 });
